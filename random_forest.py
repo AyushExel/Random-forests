@@ -152,41 +152,29 @@ def random_forest(train, test, max_depth, min_size, sample_size, n_trees, n_feat
     predictions =[bagging_predict(trees,row) for row in test]
     return predictions
 
-
-'''def decision_tree(train, test, max_depth, min_size):  
-    prediction = list()
-    tree = build_tree(train,max_depth,min_size)
-    for row in test:
-        prediction.append(predict(tree,row))
-    return prediction'''
-
-# Test CART on Bank Note dataset
+#Test on sample data
+'''
 seed(1)
-# load and prepare data
-filename = 'X_train.txt'
-results = []
-with open(filename, newline='') as inputfile:
-    for row in csv.reader(inputfile):
-        results.append(row)
-'''dataset = load_csv(filename)
+filename = 'test_data.csv'
+
+dataset = load_csv(filename)
 # convert string attributes to integers
 for i in range(len(dataset[0])):
-	str_column_to_float(dataset, i)'''
+	str_column_to_float(dataset, i)
 # evaluate algorithm
-print(len(results))
-print(len(results[0]))
-'''n_folds = 5
+
+n_folds = 5
 max_depth = 5
 min_size = 10
 sample_size = 1.0
-n_features = 3
+n_features = 3  #change this according to the feature size (generally used size is sqrt(featureSize))
 
 for n_trees in [1, 5, 10]:
 	scores = evaluate_algorithm(dataset, random_forest, n_folds, max_depth, min_size, sample_size, n_trees, n_features)
 	print('Trees: %d' % n_trees)
 	print('Scores: %s' % scores)
-	print('Mean Accuracy: %.3f%%' % (sum(scores)/float(len(scores))))'''
-
+	print('Mean Accuracy: %.3f%%' % (sum(scores)/float(len(scores))))
+'''
 
 
 	
